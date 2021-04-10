@@ -3,7 +3,6 @@
 <div  class="page-wrapper container">
 
   <transition 
-
     name="backout"
     mode="out-in">
     <component :is="view" :charData="cardToEdit" @edit="editCard" @change-view="changeView" ></component>    

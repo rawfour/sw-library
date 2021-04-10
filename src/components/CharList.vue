@@ -107,7 +107,6 @@ export default {
 
             filteredList.forEach((person, index) => {
                 const id = allRecords.findIndex((item)=>{
-                    // console.log(item.name === person.name)
                     return item.name === person.name;
                 })
                 
