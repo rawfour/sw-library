@@ -2,31 +2,46 @@
 
     <div class="list">
         <heading>Characters list</heading>
-        <div class="list__head">
-            <span class="list__head-item">Name</span>
-            <span class="list__head-item">Gender</span>
-            <span class="list__head-item">Appearance</span>
-            <span class="list__head-item">Action</span>
-        </div>
-        
+
+
         <transition name="fade" mode="out-in" appear>
+
+
             <template v-if="isLoading">
                 <loader></loader>
             </template>
 
+
             <template v-else>
-                <div class="list__items-wrapper">
-                    <card v-for="char in characters" :charData="char" :key="char.name" @edit="editCard" @change-view="changeView" ></card>
+
+                <div>
+
+                    <div class="counters-wrapper">
+                        <counter :targetValue="gender.female">Females</counter>
+                        <counter :targetValue="gender.male">Males</counter>
+                        <counter :targetValue="gender.other">Other</counter>
+                    </div>
+
+                    <div class="list__head">
+                        <span class="list__head-item">Name</span>
+                        <span class="list__head-item">Gender</span>
+                        <span class="list__head-item">Appearance</span>
+                        <span class="list__head-item">Action</span>
+                    </div>
+
+                    <div class="list__items-wrapper">
+                        <card v-for="char in characters" :charData="char" :key="char.name" @edit="editCard" @change-view="changeView" ></card>
+                    </div>
+
                 </div>
-            </template>            
+
+            </template>   
+
         </transition>
 
 
 
-        <!-- <span>females: {{ gender.female }}</span>
-        <span>males: {{ gender.male }}</span>
-        <span>other: {{ gender.other }}</span> -->
-
+    
     </div>
 </template>
 
@@ -34,6 +49,7 @@
 import Heading from "./Heading"
 import Card from './CharCard';
 import Loader from './Loader';
+import Counter from './Counter';
 
 export default {
     name:"List",
@@ -148,7 +164,8 @@ export default {
     components: {
         Heading,
         Card,
-        Loader
+        Loader,
+        Counter
     }
 }
 </script>
