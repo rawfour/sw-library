@@ -1,7 +1,5 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production'
-  ? '/sw-library/'
-  : '/',
+    publicPath: '/sw-library/',
     css: {
       loaderOptions: {
         sass: {
