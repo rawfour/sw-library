@@ -1,5 +1,4 @@
 module.exports = {
-    publicPath: '/sw-library/',
     css: {
       loaderOptions: {
         sass: {
