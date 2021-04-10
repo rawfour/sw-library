@@ -51,9 +51,6 @@ export default {
     name: "EyeIcon",
     props: {
         color: String
-    },
-    mounted(){
-        console.log(this.color);
     }
 }
 </script>

@@ -1,21 +1,26 @@
 <template>
+
     <div class="list">
+        <heading>Characters list</heading>
         <div class="list__head">
             <span class="list__head-item">Name</span>
             <span class="list__head-item">Gender</span>
             <span class="list__head-item">Appearance</span>
             <span class="list__head-item">Action</span>
         </div>
+        
+        <transition name="fade" mode="out-in" appear>
+            <template v-if="isLoading">
+                <loader></loader>
+            </template>
 
-        <template v-if="isLoading">
-            <loader></loader>
-        </template>
+            <template v-else>
+                <div class="list__items-wrapper">
+                    <card v-for="char in characters" :charData="char" :key="char.name" @edit="editCard" @change-view="changeView" ></card>
+                </div>
+            </template>            
+        </transition>
 
-        <template v-else>
-            <div class="list__items-wrapper">
-                <card v-for="char in characters" :charData="char" :key="char.name" ></card>
-            </div>
-        </template>
 
 
         <!-- <span>females: {{ gender.female }}</span>
@@ -26,6 +31,7 @@
 </template>
 
 <script>
+import Heading from "./Heading"
 import Card from './CharCard';
 import Loader from './Loader';
 
@@ -33,7 +39,7 @@ export default {
     name:"List",
     data(){
         return {
-            isLoading: false,
+            isLoading: true,
             isError: false,
             total: 0,
             gender: {
@@ -46,6 +52,12 @@ export default {
         }
     },
     methods: {
+        editCard: function(data){
+            this.$emit("edit", data);
+        },
+        changeView: function(view){
+            this.$emit("change-view", view);
+        },
         startLoading: function(){
           this.isLoading = true;
         },
@@ -84,7 +96,7 @@ export default {
                 restRecords = [...restRecords, ...response.results];
             }
             const allRecords = [...results, ...restRecords];
-            console.log(allRecords)
+
             //filter records 
             const filteredList = allRecords.filter((person) => {
                 const firstLetter = person.name.trim().toLowerCase().charAt(0);
@@ -135,6 +147,7 @@ export default {
         }
     },
     components: {
+        Heading,
         Card,
         Loader
     }

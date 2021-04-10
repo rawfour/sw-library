@@ -1,0 +1,16 @@
+.select{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: column;
+    &__label{
+        margin-bottom: 10px;
+    }
+    &__field{
+        width: 100%;
+        padding: 8px 15px;
+        border: 2px solid #eee;
+        border-radius: 5px;
+    }
+}

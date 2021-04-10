@@ -3,6 +3,7 @@
     border: 2px solid #000;
     padding: 8px 15px;
     transition: .2s;
+    border-radius: 5px;
     cursor: pointer;
     &:hover{
         background-color: $color-extra;

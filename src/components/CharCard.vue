@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <div class="card__item"><vbutton>Edit</vbutton></div>
+        <div class="card__item"><vbutton @click.native="editCard">Edit</vbutton></div>
 
     </div>
 </template>
@@ -37,6 +37,12 @@ export default {
     },
     props: {
         charData: Object
+    },
+    methods: {
+        editCard: function() {
+            this.$emit('edit', this.charData);
+            this.$emit('change-view', 'editform');
+        }
     },
     mounted(){
             const mass = this.charData.mass.replace(',', '').trim(),
