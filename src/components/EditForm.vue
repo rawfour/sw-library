@@ -6,13 +6,13 @@
         <form>
 
             <div class="form-row">
-                <custom-input :fieldName="'name'" :fieldType="'text'" :labelText="'Name'" :fieldValue="charData.name"></custom-input>
-                <custom-select :fieldName="'gender'" :selectedItem="charData.gender" :labelText="'Gender'" :options="options"></custom-select>
+                <custom-input :fieldName="'name'" :fieldType="'text'" :labelText="'Name'" :fieldValue="data.name"></custom-input>
+                <custom-select :fieldName="'gender'" :selectedItem="data.gender" :labelText="'Gender'" :options="options"></custom-select>
             </div>
 
             <div class="form-row">
-                <custom-input :fieldName="'height'" :fieldType="'number'" :labelText="'Height (enter value in cm)'" :fieldValue="charData.height"></custom-input>
-                <custom-input :fieldName="'weight'" :fieldType="'number'" :labelText="'Weight (enter value in kg)'" :fieldValue="charData.mass ? charData.mass.replace(',', '') : ''"></custom-input>            
+                <custom-input :fieldName="'height'" :fieldType="'number'" :labelText="'Height (enter value in cm)'" :fieldValue="data.height"></custom-input>
+                <custom-input :fieldName="'weight'" :fieldType="'number'" :labelText="'Weight (enter value in kg)'" :fieldValue="data.mass ? data.mass.replace(',', '') : ''"></custom-input>            
             </div>
 
         </form>        
@@ -32,7 +32,8 @@ export default {
     },
     data(){
         return{
-            options: ["male", "female", "hermaphrodite", 'n/a']
+            options: ["male", "female", "hermaphrodite", 'n/a'],
+            data: ''
         }
             
         
@@ -42,6 +43,12 @@ export default {
             this.$emit('change-view', 'list');
         }
 
+    },
+    mounted(){
+        const {gender, eye_color, birth_year} = this.charData;
+        if(gender === "female" && eye_color === "brown" && birth_year === "19BBY"){
+            this.data = this.charData;
+        }
     },
     components: {
         Heading,
