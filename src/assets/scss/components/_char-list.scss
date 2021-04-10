@@ -1,0 +1,20 @@
+.list{
+    &__head{
+        display: grid;
+        grid-template-columns: 2fr 1fr 2fr 1fr;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #eeeeee;
+        @media (max-width: $mq-md){
+            display: none;
+        }
+    }
+    &__head-item{
+        text-align: center;
+    }
+    &__items-wrapper{
+
+    }
+}

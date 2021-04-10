@@ -1,0 +1,12 @@
+.loader{
+    width: 80px;
+    animation: rotate-loader infinite 1.5s linear;
+    margin: 0 auto;
+    display: block;
+}
+
+@keyframes rotate-loader{
+    100%{
+        transform: rotate(360deg);
+    }
+}

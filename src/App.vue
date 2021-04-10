@@ -1,6 +1,6 @@
 <template>
 
-<div class="list-wrapper">
+<div class="page-wrapper container">
 
   <list></list>
 </div>
@@ -21,19 +21,3 @@ export default {
 }
 </script>
 
-<style>
-
-  *,body{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-
-  .list-wrapper{
-    height: 100vh;
-    width: 100vw;
-
-  }
-
-
-</style>

@@ -1,0 +1,11 @@
+.button{
+    background-color: transparent;
+    border: 2px solid #000;
+    padding: 8px 15px;
+    transition: .2s;
+    cursor: pointer;
+    &:hover{
+        background-color: $color-extra;
+        border-color: $color-extra;
+    }
+}
